@@ -1,11 +1,11 @@
 package com.kotlin.leran.day01
 
 /**
- * kotlin语法之变量和常量的使用
- * author ：Jetictors
- * Created by loser's computer on 2017/8/31.
+ * 描述 :     Kotlin语法之变量和常量的使用
+ * anthor :  Jetictors
+ * time :    2017/9/1  01:30
+ * version : 1.0.1
  */
-
 fun main(args: Array<String>) {
     variableExample()
     constantExample()
@@ -36,15 +36,15 @@ fun variableExample(){
  */
 fun constantExample(){
     //立即初始化
-    val a: Int = 100
+    val NUM_A: Int = 100
 
     //推导出类型
-    val b = 50
+    val NUM_B = 50
 
     //没有初始化的时候，必须声明类型
-    val c: Int
-    c = 1
+    val NUM_C: Int
+    NUM_C = 1
     // c += 1 因为c是常量，所以这句代码是会报错的
 
-    println("a => $a   b => $b   c => $c")
+    println("NUM_A => $NUM_A   NUM_B => $NUM_B   NUM_C => $NUM_C")
 }

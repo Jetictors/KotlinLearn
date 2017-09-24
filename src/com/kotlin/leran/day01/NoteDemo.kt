@@ -1,9 +1,10 @@
 package com.kotlin.leran.day01
 
 /**
- * kotlin语法之注释
- * author ：Jetictors
- * Created by loser's computer on 2017/8/31.
+ * 描述 :     Kotlin语法之注释
+ * anthor :  Jetictors
+ * time :    2017/9/1  00:50
+ * version : 1.0.1
  */
 fun main(args: Array<String>) {
 
@@ -35,7 +36,7 @@ fun main(args: Array<String>) {
     /**
      *  3. 方法的注释（同java一样）
      */
-    fun testMethodNote(a: Int) : Int{
-        return a
+    fun testMethodNote(){
+
     }
 }

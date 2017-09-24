@@ -1,9 +1,10 @@
 package com.kotlin.leran.day01
 
 /**
- * kotlin环境搭建 运行Hello World
- * author ：Jetictors
- * Created by loser's computer on 2017/8/30.
+ * 描述 :     Kotlin环境搭建 运行Hello World
+ * anthor :  Jetictors
+ * time :    2017/8/31  23:20
+ * version : 1.0.1
  */
 fun main(args: Array<String>) {
     println("Hello World !")
