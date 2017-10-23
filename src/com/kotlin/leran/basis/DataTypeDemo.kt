@@ -1,4 +1,4 @@
-package com.kotlin.leran.day01
+package com.kotlin.leran.basis
 
 /**
  * 描述 ：    Kotlin语法之数据类型详解
@@ -110,15 +110,15 @@ fun numberType(){
     var andOperaNum = operaNum and(2)
     var orOperaNum = operaNum or(2)
     var xorOperaNum = operaNum xor(2)
-
-
+    var invOperaNum = operaNum.inv()
 
     println("shlOperaNum => $shlOperaNum \n " +
             "shrOperaNum => $shrOperaNum \n " +
             "ushrOperaNum => $ushrOperaNum \n " +
             "andOperaNum => $andOperaNum \n " +
             "orOperaNum => $orOperaNum \n " +
-            "xorOperaNum => $xorOperaNum \n ")
+            "xorOperaNum => $xorOperaNum \n " +
+            "invOperaNum => $invOperaNum \n ")
 
 }
 
