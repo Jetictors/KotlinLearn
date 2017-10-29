@@ -8,13 +8,12 @@ package com.kotlin.leran.basis
  */
 
 fun main(args: Array<String>) {
-
-//    ifExample()
-//    forExample()
-//    whileExample()
-//    doWhileExample()
+    ifExample()
+    forExample()
+    whileExample()
+    doWhileExample()
     whenExample()
-//    controlExample()
+    controlExample()
 }
 
 /**
