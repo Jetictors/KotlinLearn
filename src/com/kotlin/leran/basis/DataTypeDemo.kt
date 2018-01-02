@@ -118,7 +118,7 @@ fun numberType(){
             "andOperaNum => $andOperaNum \n " +
             "orOperaNum => $orOperaNum \n " +
             "xorOperaNum => $xorOperaNum \n " +
-            "invOperaNum => $invOperaNum \n ")
+            "invOperaNum => $invOperaNum")
 
 }
 
