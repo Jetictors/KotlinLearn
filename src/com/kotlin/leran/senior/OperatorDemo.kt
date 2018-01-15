@@ -8,8 +8,41 @@ package com.kotlin.leran.senior
  */
 
 fun main(args: Array<String>) {
-    unitaryOperator()
-    binaryOperator()
+//    unitaryOperator()
+//    binaryOperator()
+    compareOperator()
+}
+
+/**
+ * 比较运算符
+ */
+fun compareOperator() {
+    /*
+        > 、< 、>= 、<= 、== 、!=
+     */
+    val a = 12
+    val b = 12L
+    val c = b.toInt()
+
+//    println("a > b => ${a > b} \t a.compareTo(b) > 0 => ${a.compareTo(b) > 0}")
+//    println("a < b => ${a < b} \t a.compareTo(b) < 0 => ${a.compareTo(b) < 0}
+//    println("a >= b => ${a >= b} \t a.compareTo(b) >=  0 => ${a.compareTo(b) >= ")0}")
+//    println("a <= b => ${a <= b} \t a.compareTo(b) <= 0 => ${a.compareTo(b) <= 0}")
+
+
+//    println("a == c => ${a == c} \t a === c => ${a === c}")
+//
+    var e : String? = "123"
+
+    var test = if (e!=null) e.length else -1
+    println(test)
+    test = e?.length ?: -1
+    println(test)
+
+
+    val s : Int? = "abc" as? Int
+    println(s)
+
 }
 
 /**
