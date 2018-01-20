@@ -8,24 +8,17 @@ package com.kotlin.leran.basis
  */
 
 fun main(args: Array<String>) {
-//    funNull()
-//    funNullCheck()
-//    println(funNullMethod())
-//    testBuilder()
-//    operatorLet()
-//    operatorEvils1()
-//    operatorEvils2()
+    funNull()
+    funNullCheck()
+    println(funNullMethod())
+    testBuilder()
+    operatorLet()
+    operatorEvils1()
+    operatorEvils2()
     operatorEvils3()
 }
 
 fun operatorEvils3() {
-
-//    // 正常转换
-//    val num1 : Int = "123".toInt()
-//    // 会抛出ClassCastException异常
-//    val num2 : Int = "123" as Int
-//
-//    println("nun1 = $num1 \t num2 = $num2")
 
     // 正常转换
     val a = 10
