@@ -9,8 +9,9 @@ package com.kotlin.leran.senior
 
 fun main(args: Array<String>) {
 //    unitaryOperator()
+    unitaryCommonOperator()
 //    binaryOperator()
-    compareOperator()
+//    compareOperator()
 }
 
 /**
@@ -24,25 +25,13 @@ fun compareOperator() {
     val b = 12L
     val c = b.toInt()
 
-//    println("a > b => ${a > b} \t a.compareTo(b) > 0 => ${a.compareTo(b) > 0}")
-//    println("a < b => ${a < b} \t a.compareTo(b) < 0 => ${a.compareTo(b) < 0}
-//    println("a >= b => ${a >= b} \t a.compareTo(b) >=  0 => ${a.compareTo(b) >= ")0}")
-//    println("a <= b => ${a <= b} \t a.compareTo(b) <= 0 => ${a.compareTo(b) <= 0}")
+    println("a > b => ${a > b} \t a.compareTo(b) > 0 => ${a.compareTo(b) > 0}")
+    println("a < b => ${a < b} \t a.compareTo(b) < 0 => ${a.compareTo(b) < 0}")
+    println("a >= b => ${a >= b} \t a.compareTo(b) >=  0 => ${a.compareTo(b) >= 0}")
+    println("a <= b => ${a <= b} \t a.compareTo(b) <= 0 => ${a.compareTo(b) <= 0}")
 
-
-//    println("a == c => ${a == c} \t a === c => ${a === c}")
-//
-    var e : String? = "123"
-
-    var test = if (e!=null) e.length else -1
-    println(test)
-    test = e?.length ?: -1
-    println(test)
-
-
-    val s : Int? = "abc" as? Int
-    println(s)
-
+    println("a == c => ${a == c} \t a === c => ${a === c}")
+    
 }
 
 /**
@@ -153,7 +142,7 @@ fun basicBinaryOperator(){
 private fun unitaryOperator() {
 
     /*
-        一元操作:即指一个操作数的情况，有三种一元操作
+        简单的一元操作:有三种一元操作
         1. `+` 表示正数的意思，其操作数为数值型
         2. `-` 表示负数的意思，其操作数为数值型
         3. `!` 表示取反的意思，其操作数为boolean类型
@@ -164,7 +153,6 @@ private fun unitaryOperator() {
     var c = true
     var d = false
 
-
     // Java实现
     println("+a = ${+a}\t -a = ${-a}\t !c = ${!c}")
     println("+b = ${+b}\t -b = ${-b}\t !d = ${!d}")
@@ -173,4 +161,37 @@ private fun unitaryOperator() {
     println("+a = ${a.unaryPlus()}\t -a = ${a.unaryMinus()}\t !c = ${c.not()}")
     println("+b = ${b.unaryPlus()}\t -b = ${b.unaryMinus()}\t !d = ${d.not()}")
 }
+
+/**
+ * 复杂的一元元操作
+ */
+fun unitaryCommonOperator() {
+    /*
+        复杂的一元操作:有4种一元操作
+        1. `a++` ：后缀自增
+        2. `a--` : 后缀自减
+        1. `++a` ：前缀自增
+        2. `--a` : 前缀自减
+     */
+    var a = 10
+    var b = 10
+    var c = 10
+    var d = 10
+
+    // Java实现
+    println("a++ = ${a++} \t b-- = ${b--} \t ++c = ${++c} \t --d = ${--d}")
+
+    a = 10
+    b = 10
+    c = 10
+    d = 10
+    //  Kotlin实现
+
+    a.also { a.dec() }
+    b.dec().also { b = it }
+    println("a = $a \t b = $b" )
+
+//    println("a.inc() = ${a.inc()} \t b.dec() = ${b.dec()} \t ++c = ${c.inc()} \t --d = ${d.dec()}")
+}
+
  

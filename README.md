@@ -47,12 +47,12 @@
 -  5.2、 [比较操作符、集合操作符、区间操作符详解](#)      
 #### 6、[可空类型、空安全、空安全犀利操作符详解](https://juejin.im/post/5a5b06f26fb9a01cb42c5206)   
 #### 7、[简单的函数/方法使用](https://juejin.im/post/5a6377425188257329148665)  
+#### 8、[字符串的常用操作](https://juejin.im/post/5b0ae06df265da0db64e3d63)  
 
 ### 中级篇
 > `Kotlin`是一门`面向对象`的开发语言。既然是面向对象，则在中级篇主要讲解其`三大特性`，以及`类成员`、`数据类`、`抽象类`、
 `接口类`、`内部类`、`继承类`等关于`Kotlin`类的方方面面的讲解
 
-#### 1、 [面向对象的三大特征](#)
 #### 1、[类的基础声明与使用](https://juejin.im/post/5a3297de6fb9a045055e295e)
 #### 2、[类的属性与字段、成员函数](#)
 #### 3、[可见性修饰符详解](https://juejin.im/post/5a3293ec51882531926ebfe6)
@@ -62,14 +62,31 @@
 - 4.3、[数据类、密封类](https://juejin.im/post/5a37e4b45188253aea1f7219)
 - 4.4、[抽象类、内部类、嵌套类](https://juejin.im/post/5a48a0e8518825455f2fa070)
 
-#### 高级篇
+### 高级篇
 > 高级篇的内容要多一些，只要是对`Kotlin`中的高级用法以及一些独特的东西。涵盖了`高阶函数`、`lambda表达式`、`协程`、
 `泛型`、`伴生对象、对象表达式`、`扩展`、`委托`等
 
+#### 1、[Lambda表达式](https://juejin.im/post/5ab9a5ccf265da239f076284)
+#### 2、[Kotlin高阶函数](#)
+#### 3、集合详解
+- 3.1、[数组、List、Set、Map集合的定义与使用](https://juejin.im/post/5ab7a9c4f265da2377196038)
+- 3.2、[常用的集合操作符与函数整理](#)
+#### 4、[扩展（属性、函数等）](#)
+#### 5、[教你一步步了解与使用泛型操作](#)
 
-#### 进阶篇
+
+### 进阶篇
 > 进阶篇主要讲解的是在实际开发项目中的注意事项及一些高级操作,例如`Kotlin`中的设计模式、编码规范、反射机制等
 
+### 实战篇
+> 实战篇主要向大家介绍使用`Kotlin`开发`Android`项目时，介绍一些常用和`Kotlin`一起开发的库，以及对他们的使用及讲解。
+比如说`Anko`、`Dagger2`或者用`Kotlin`编写的一些自定义组件等等...
+
+#### 1、学会Kotlin + Anko,让你从此告别XML布局。
+实例项目地址：[anko_kotlin_gank_client](https://github.com/Jetictors/anko_kotlin_gank_client)
+#### 2、Kotlin中使用Dagger2的坑
+实例项目地址：[kotlin-java-dagger2](https://github.com/Jetictors/kotlin-java-dagger2)
+#### 3、Kotlin自定义组件系列
 
 ## 感谢
 我相信在你学完整个系列教程之后，一定是可以用`Kotlin`进行实际项目开发的。近期我也会用`Koltin`语言去编写我自己的`Android`项目，也

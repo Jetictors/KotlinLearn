@@ -7,44 +7,78 @@ package com.kotlin.leran.basis
  * version : 1.0.1
  */
 fun main(args: Array<String>) {
-    variableExample()
-    constantExample()
+    basisVariable()
+    classVariable()
 }
 
 /**
- * 变量的定义
- * 关键字: var
+ * 在类中，变量的定义及使用
  */
-fun variableExample(){
-    //立即初始化
-    var a: Int = 10
+fun classVariable() {
+    class Test1{
 
-    //推导出类型
-    var b = 5
+        // 定义属性
+        var var_a : Int = 0
+        val val_a : Int = 0
 
-    //没有初始化的时候，必须声明类型
-    var c: Float
-    c = 12.3f
-    c += 1
+        // 初始化
+        init {
+            var_a = 10
+            // val_a = 0 为val类型不能更改。
 
-    println("a => $a   b => $b   c => $c")
+            println("var_a => $var_a \t val_a => $val_a")
+        }
+    }
+
+    Test1()
+
+    class Test2{
+
+        // 声明可空变量
+
+        var var_a : Int? = 0
+        val val_a : Int? = null
+
+        init {
+            var_a = 10
+            // val_a = 0 为val类型不能更改。
+
+            println("var_a => $var_a \t val_a => $val_a")
+        }
+    }
+
+    Test2()
 }
 
 /**
- * 常量的定义
- * 关键字: val
+ * 基础变量的定义及用法
  */
-fun constantExample(){
+fun basisVariable() {
     //立即初始化
-    val NUM_A: Int = 100
+    var var_a: Int = 10
 
     //推导出类型
-    val NUM_B = 50
+    var var_b = 5
 
     //没有初始化的时候，必须声明类型
-    val NUM_C: Int
-    NUM_C = 1
-    // c += 1 因为c是常量，所以这句代码是会报错的
+    var var_c: Float
+    var_c = 12.3f
+    var_c += 1
 
-    println("NUM_A => $NUM_A   NUM_B => $NUM_B   NUM_C => $NUM_C")
+    println("var_a => $var_a \t var_b => $var_b \t var_a => $var_c")
+
+    //立即初始化
+    val val_a: Int = 100
+
+    //推导出类型
+    val val_b = 50
+
+    //没有初始化的时候，必须声明类型
+    val val_c: Int
+    val_c = 1
+    // val_c += 1 因为c是常量，所以这句代码是会报错的
+
+    println("val_a => $val_a \t val_b => $val_b \t val_c => $val_c")
 }
+
+
