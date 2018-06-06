@@ -33,6 +33,10 @@ fun mapDemo() {
     map.forEach{
         key,value -> println("$key \t $value")
     }
+
+    map.forEach{
+        _ , value -> println("$value")
+    }
 }
 
 fun setDemo() {

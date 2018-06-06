@@ -11,7 +11,7 @@ package com.kotlin.leran.function.lambda
 fun main(args: Array<String>) {
 
     fun test(a : Int , b : (num1 : Int , num2 : Int) -> Int) : Int{
-        return a + b.invoke(3,5)
+        return a + b.invoke(5,3)
     }
 
     println(test(10,{ num1: Int, num2: Int ->  num1 + num2}))
@@ -26,16 +26,6 @@ fun main(args: Array<String>) {
 
     println(test1(10,{it > 5}))
     println(test1(4,{it > 5}))
-
-    val map = mapOf("key1" to "value1","key2" to "value2","key3" to "value3")
-
-    map.forEach{
-         key , value -> println("$key \t $value")
-    }
-
-    map.forEach{
-        _ , value -> println("$value")
-    }
 
     val test1 = fun(x : Int , y : Int) = x + y
     val test2 = fun(x : Int , y : Int) : Int = x + y
