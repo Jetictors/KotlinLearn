@@ -67,12 +67,13 @@
 `泛型`、`伴生对象、对象表达式`、`扩展`、`委托`等
 
 #### 1、[Lambda表达式](https://juejin.im/post/5ab9a5ccf265da239f076284)
-#### 2、[Kotlin高阶函数](https://juejin.im/post/5ab7a9aef265da23a049872e)
-#### 3、集合详解
-- 3.1、[数组、List、Set、Map集合的定义与使用](https://juejin.im/post/5ab7a9c4f265da2377196038)
-- 3.2、[常用的集合操作符与函数整理](#)
-#### 4、[扩展（属性、函数等）](#)
+#### 2、[Kotlin-高阶函数](https://juejin.im/post/5b198c675188257d7a49b3ec)
+#### 3、[Kotlin-内联合函数详解](#)
+#### 4、集合详解
+- 4.1、[数组、List、Set、Map集合的定义与使用](https://juejin.im/post/5ab7a9c4f265da2377196038)
+- 4.2、[常用的集合操作符与函数整理](https://juejin.im/post/5abbc4405188255c616310ff)
 #### 5、[教你一步步了解与使用泛型操作](#)
+#### 6、[扩展（属性、函数等）](#)
 
 
 ### 进阶篇

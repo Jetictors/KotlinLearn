@@ -14,51 +14,240 @@ fun main(args: Array<String>) {
     arrayToList()
     listToList()
     getElement()
-    findElement()
-    findIndex()
+    optValue()
+    optCount()
+    optSort()
+    optMapped()
+    optFilter()
+    optProduce()
 }
 
 /**
- * 根据元素值查找元素下标
+ * 生产操作符
  */
-fun findIndex() {
-    val list = listOf<String>("kotlin","Android","Java","PHP","Python","IOS")
+fun optProduce() {
+    val list1 = listOf(1,2,3,4)
+    val list2 = listOf("kotlin","Android","Java","PHP","JavaScript")
 
-    val index1 = list.indexOf("Java")
-    val index2 = list.indexOfFirst { it == "kotlin" }
-    val index3 = list.indexOfLast { it == "kotlin" }
+    // plus() 和 `+`一样
+    println(list1.plus(list2))
+    println(list1 + list2)
 
-    val index4 = list.lastIndexOf("Android")
-    val index5 = list.lastIndex
+    // zip
+    println(list1.zip(list2))
+    println(list1.zip(list2){       // 组成的新集合由元素少的原集合决定
+        it1,it2-> it1.toString().plus("-").plus(it2)
+    })
 
-    println("index1 = $index1 \t index2 = $index2 \t index3 = $index3 \t index4 = $index4 \t index5 = $index5 \t ")
+    // unzip
+    val newList = listOf(Pair(1,"Kotlin"),Pair(2,"Android"),Pair(3,"Java"),Pair(4,"PHP"))
+    println(newList.unzip())
+
+    // partition
+    println(list2.partition { it.startsWith("Ja") })
+}
+
+/**
+ * 过滤操作符
+ */
+fun optFilter() {
+
+    val list1 = listOf(-1,-3,1,3,5,6,7,2,4,10,9,8)
+    val list2 = listOf(1,3,4,5,null,6,null,10)
+    val list3 = listOf(1,1,5,2,2,6,3,3,7,4,4,8)
+
+    println("  ------   filter -------")
+    println(list1.filter { it > 1  })
+    println(list1.filterIndexed { index, result ->
+        index < 5 && result > 3
+    })
+    println(list1.filterNot { it > 1 })
+    println(list2.filterNotNull())
+
+    println("  ------   take -------")
+    println(list1.take(5))
+    println(list1.takeWhile { it < 5 })
+    println(list1.takeLast(5))
+    println(list1.takeLastWhile { it > 5 })
+
+    println("  ------   drop -------")
+    println(list1.drop(5))
+    println(list1.dropWhile { it < 5 })
+    println(list1.dropLast(5))
+    println(list1.dropLastWhile { it > 5 })
+
+    println("  ------   distinct -------")
+    println(list3.distinct())
+    println(list3.distinctBy { it + 2 })
+
+    println("  ------   slice -------")
+    println(list1.slice(listOf(1,3,5,7)))
+    println(list1.slice(IntRange(1,5)))
 
 }
 
 /**
- * 查找元素
+ * 映射操作符
  */
-fun findElement() {
+fun optMapped() {
+    val list1 = listOf("kotlin","Android","Java","PHP","JavaScript")
 
-    val list = listOf<String>("kotlin","Android","Java","PHP","Python","IOS")
+    println(list1.map { "str-".plus(it) })
 
-    // first() : 获取第一个元素
-    val first1 = list.first()
-    // first{} : 根据条件获取第一个元素,当不满足条件时，会抛出NoSuchElementException异常
-    val first2 = list.first { it == "kotlin" }
-    println("first1 = $first1 \t first2 = $first2")
+    println(list1.mapNotNull { "str-".plus(it) })
 
-    // last() : 获取最后一个元素
-    val last1 = list.last()
-    // last{} : 根据条件获取最后一个元素,当不满足条件时，会抛出NoSuchElementException异常，当条件为第一个元素的值时，也会抛出异常
-    val last2 = list.last{ it  == "Android"}
-    println("last1 = $last1 \t last2 = $last2")
+    println(list1.mapIndexed { index, str ->
+        index.toString().plus("-").plus(str)
+    })
 
-    // find{} : 查找元素
-    val find1 = list.find { it == "Java" }
-    // findLast{} : 查找元素
-    val find2 = list.findLast { it == "Android" }
-    println("find1 = $find1 \t find2 = $find2")
+    println(list1.mapIndexedNotNull { index, str ->
+        index.toString().plus("-").plus(str)
+    })
+
+    println( list1.flatMap { listOf(it,"new-".plus(it)) })
+
+    println(list1.groupBy { if (it.startsWith("Java")) "big" else "latter" })
+
+}
+
+/**
+ * 顺序操作符
+ */
+fun optSort() {
+    val list1 = listOf(-1,-3,1,3,5,6,7,2,4,10,9,8)
+
+    // 反序
+    println(list1.reversed())
+
+    // 升序
+    println(list1.sorted())
+
+    // 根据条件升序，即把不满足条件的放在前面，满足条件的放在后面
+    println(list1.sortedBy { it % 2 == 0})
+
+    // 降序
+    println(list1.sortedDescending())
+
+    // 根据条件降序，和`sortedBy{}`相反
+    println(list1.sortedByDescending { it % 2 == 0 })
+
+}
+
+/**
+ * 统计操作符
+ */
+fun optCount() {
+    val list1 = listOf(1,2,3,4,5)
+
+    println("  ------   any -------")
+    // 判断是不是一个集合，若是，则在判断集合是否为空，若为空则返回`false`,反之返回true,若不是集合，则返回`hasNext`
+    println(list1.any())
+    // 判断集合中是否有大于10的元素。若存在则返回true,反之返回false
+    println(list1.any{it > 10})
+
+    println("  ------   all -------")
+    // 判断集合中是否所有的元素都大于2。若满足条件则返回true,反之返回false
+    println(list1.all { it > 2 })
+
+    println("  ------   none -------")
+    // 判断是不是一个集合，若是，则在判断集合是否为空，若为空则返回`false`,反之返回true,若不是集合，则返回`hasNext`
+    println(list1.none())
+    // 判断集合中是否所有的元素都大于2。若满足条件则返回true,反之返回false
+    println(list1.none{ it > 2})
+
+    println("  ------   max -------")
+    println(list1.max())
+    println(list1.maxBy { it + 2 })
+//    println(list1.maxWith(Comparator { num1, num2 -> num1 + num2 }))
+
+    println("  ------   min -------")
+    println(list1.min())        // 返回集合中最小的元素
+    println(list1.minBy { it + 2 })
+//    println(list1.minWith(Comparator { num1, num2 -> num1 + num2 }))
+
+    println("  ------   sum -------")
+    println(list1.sum())
+    println(list1.sumBy { it + 2 })
+    println(list1.sumByDouble { it.toDouble() })
+
+    println(" ------  average -----")
+    println(list1.average())
+
+    println("  ------   reduce  -------")
+    println(list1.reduce { result, next -> result  + next})
+    println(list1.reduceIndexed { index, result, next ->
+        index + result + next
+    })
+    println(list1.reduceRight { result, next -> result  + next })
+    println(list1.reduceRightIndexed {index, result, next ->
+        index + result + next
+    })
+
+    println("  ------   fold  -------")
+    println(list1.fold(3){result, next -> result  + next})
+    println(list1.foldIndexed(3){index,result, next ->
+        index + result  + next
+    })
+    println(list1.foldRight(3){result, next -> result  + next})
+    println(list1.foldRightIndexed(3){index,result, next ->
+        index + result  + next
+    })
+}
+
+/**
+ * 测试元素操作符
+ */
+fun optValue() {
+    val list = listOf("kotlin","Android","Java","PHP","Python","IOS")
+
+    println("  ------   contains -------")
+    println(list.contains("JS"))
+
+    println("  ------   elementAt -------")
+
+    println(list.elementAt(2))
+    println(list.elementAtOrElse(10,{it}))
+    println(list.elementAtOrNull(10))
+
+    println("  ------   get -------")
+    println(list.get(2))
+    println(list.getOrElse(10,{it}))
+    println(list.getOrNull(10))
+
+    println("  ------   first -------")
+    println(list.first())
+    println(list.first{ it == "Android" })
+    println(list.firstOrNull())
+    println(list.firstOrNull { it == "Android" })
+
+    println("  ------   last -------")
+    println(list.last())
+    println(list.last{ it == "Android" })
+    println(list.lastOrNull())
+    println(list.lastOrNull { it == "Android" })
+
+    println("  ------   indexOf -------")
+    println(list.indexOf("Android"))
+    println(list.indexOfFirst { it == "Android" })
+    println(list.indexOfLast { it == "Android" })
+
+    println("  ------   single -------")
+    val list2 = listOf("list")
+    println(list2.single())     // 只有当集合只有一个元素时，才去用这个函数，不然都会抛出异常。
+    println(list2.single { it == "list" }) //当集合中的元素满足条件时，才去用这个函数，不然都会抛出异常。若满足条件返回该元素
+    println(list2.singleOrNull()) // 只有当集合只有一个元素时，才去用这个函数，不然都会返回null。
+    println(list2.singleOrNull { it == "list" }) //当集合中的元素满足条件时，才去用这个函数，不然返回null。若满足条件返回该元素
+
+    println("  ------   forEach -------")
+    list.forEach { println(it) }
+    list.forEachIndexed { index, it -> println("index : $index \t value = $it") }
+
+    println("  ------   componentX -------")
+    println(list.component1())  // 等价于`list[0]  <=> list.get(0)`
+    println(list.component2())  // 等价于`list[1]  <=> list.get(1)`
+    println(list.component3())  // 等价于`list[2]  <=> list.get(2)`
+    println(list.component4())  // 等价于`list[3]  <=> list.get(3)`
+    println(list.component5())  // 等价于`list[4]  <=> list.get(4)`
 }
 
 /**
