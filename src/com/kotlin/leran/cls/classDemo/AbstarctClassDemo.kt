@@ -48,6 +48,7 @@ class TestAbstarctB : Lanauage(){
     override fun init() {
         println("我是$name")
     }
+
 }
 
 fun main(args: Array<String>) {

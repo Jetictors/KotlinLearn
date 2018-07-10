@@ -19,12 +19,9 @@
 介绍`Koltin`的特性，以及其和`Java`的差异性。让更多的朋友爱上这门语言。
 
 ## 开撸
-> 九层之台，起于垒土；千里之行，始于足下
-
 话不多说，让我们忘记生活的烦恼、放下沉重的枷锁、沉浸在代码的世界中,打开音乐的分贝，迈开脚步开始学习`Kotlin`大法吧。
 
 ## 学习架构
-
 我把这个教程命名为：从无到有系列，这个系列目前还没写完，故而下面的链接有一些是没有实际内容的，我会在后面持续的补齐，这里只是实现了整个教程的大纲。   
 
 整个项目根据学习的难以程度以及学习路线我分为了五个模块。我会按照的学习架构去排序。大家可以按照这个顺序去学习...
@@ -135,9 +132,9 @@
 
 #### 开源项目
 - [GankClient-Kotlin](https://github.com/githubwing/GankClient-Kotlin) —— 用`Koltin`编写的`Gank`客户端
-- [PoiShuhui-Kotlin](https://github.com/wuapnjie/PoiShuhui-Kotlin) —— 用Kotlin写的简单漫画APP
-- [KotlinMvp](https://github.com/git-xuhao/KotlinMvp) —— 基于Kotlin+MVP+Retrofit+RxJava+Glide 等架构实现短视频类APP练手项目，UI简约，详细注释
-- [Eyepetizer-in-Kotlin](https://github.com/LRH1993/Eyepetizer-in-Kotlin) —— 用Kotlin撸一款Eyepetizer
+- [PoiShuhui-Kotlin](https://github.com/wuapnjie/PoiShuhui-Kotlin) —— 用`Kotlin`写的简单漫画APP
+- [KotlinMvp](https://github.com/git-xuhao/KotlinMvp) —— 基于`Kotlin+MVP+Retrofit+RxJava+Glide`等架构实现短视频类APP练手项目，UI简约，详细注释
+- [Eyepetizer-in-Kotlin](https://github.com/LRH1993/Eyepetizer-in-Kotlin) —— 用`Kotlin`撸一款`Eyepetizer`
 
 ## 最后
 我相信在你学完整个系列教程之后，一定是可以用`Kotlin`进行实际项目开发的。近期我也会用`Koltin`语言去编写我自己的`Android`项目，也会用`Kotlin`去实现后端用于我`APP`中的接口提供。   

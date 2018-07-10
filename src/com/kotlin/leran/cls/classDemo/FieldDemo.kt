@@ -22,7 +22,27 @@ class Mime{
     val test2 : String
         get() = "123"
 
-     var b : Boolean? = null
+    private val size = 0
+    val isEmpty : Boolean
+        get() = this.size == 0
+
+    val num = 2
+        get() = if (field > 5) 10 else 0
+
+    var str1 = "test"
+        get() = field
+        set(value){
+            field = if (value.isNotEmpty()) value else "null"
+        }
+
+    var str2 = ""
+        get() = "随意怎么修改都不会改变"
+        set(value){
+            field = if (value.isNotEmpty()) value else "null"
+        }
+
+    var str = "kotlin"
+        private set
 
 }
 
@@ -30,5 +50,19 @@ fun main(args: Array<String>) {
     val mime = Mime()
     println("id = ${mime.id} \t name = ${mime.name} \t age = ${mime.age} \t sex = ${mime.sex} \t weight = ${mime.weight}")
 
-    val s by lazy { null }
+    println("isEmpty = ${mime.isEmpty}")
+
+    println("num = ${mime.num}")
+
+    println("str = ${mime.str1}")
+    mime.str1 = ""
+    println("str = ${mime.str1}")
+    mime.str1 = "kotlin"
+    println("str = ${mime.str1}")
+
+    println("str = ${mime.str2}")
+    mime.str2 = ""
+    println("str = ${mime.str2}")
+    mime.str2 = "kotlin"
+    println("str = ${mime.str2}")
 }

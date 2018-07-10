@@ -9,13 +9,13 @@ import java.util.regex.Pattern
  * version : v1.0.1
  */
 fun main(args: Array<String>) {
-//    checkNullStr()
-//    getStrLength()
-//    optStr()
+    checkNullStr()
+    getStrLength()
+    optStr()
     findStr()
-//    subStr()
-//    spiltStr()
-//    replaceStr()
+    subStr()
+    spiltStr()
+    replaceStr()
 }
 
 /**
@@ -164,8 +164,12 @@ private fun findStr(){
 
     println(str.first())
     println(str.first { it == 't' })
+    println(str.firstOrNull())
+    println(str.firstOrNull{it == 't'})
     println(str.last())
     println(str.last { it == 'o' })
+    println(str.lastOrNull())
+    println(str.lastOrNull { it == 'o' })
 
     println(str.indexOfFirst { it == 'o' })
     println(str.indexOfLast { it == 'o' })
