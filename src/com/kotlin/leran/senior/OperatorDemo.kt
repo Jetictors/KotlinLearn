@@ -9,9 +9,59 @@ package com.kotlin.leran.senior
 
 fun main(args: Array<String>) {
 //    unitaryOperator()
-    unitaryCommonOperator()
+//    unitaryCommonOperator()
 //    binaryOperator()
-//    compareOperator()
+    compareOperator()
+//    testRangTo()
+//    testIn()
+//    testIs()
+}
+
+/**
+ * 类型判断
+ */
+fun testIs() {
+    val a = 0
+}
+
+/**
+ * 包含操作符 in
+ */
+fun testIn() {
+    val str = "kotlin"
+    val result1 = "o" in str
+    val result2 = str.contains("o")
+    println("$result1 \t $result2")
+}
+
+
+/**
+ * 区间操作符
+ */
+fun testRangTo() {
+
+    /*
+        操作符为(..)，其有两个操作数，且都是整型
+     */
+    val a = 1
+    val b = 5
+
+    // 操作符实现
+    val s = 3 in a .. b     // true,因为3在区间[1,5]之内
+    println("s = $s")
+    for (index in a .. b){
+        print("index = $index \t")
+    }
+
+    println()
+
+    // 操作符重载方式实现
+    val t = 3 in a.rangeTo(b)
+    println("t = $t")
+    for (index in a.rangeTo(b)){
+        print("index = $index \t")
+    }
+    println()
 }
 
 /**
@@ -19,19 +69,22 @@ fun main(args: Array<String>) {
  */
 fun compareOperator() {
     /*
-        > 、< 、>= 、<= 、== 、!=
+        > 、< 、>= 、<=
      */
     val a = 12
-    val b = 12L
-    val c = b.toInt()
+    val b = 5
 
-    println("a > b => ${a > b} \t a.compareTo(b) > 0 => ${a.compareTo(b) > 0}")
-    println("a < b => ${a < b} \t a.compareTo(b) < 0 => ${a.compareTo(b) < 0}")
-    println("a >= b => ${a >= b} \t a.compareTo(b) >=  0 => ${a.compareTo(b) >= 0}")
-    println("a <= b => ${a <= b} \t a.compareTo(b) <= 0 => ${a.compareTo(b) <= 0}")
+    // 操作符实现
+    println("a > b = ${a > b}")
+    println("a < b = ${a < b}")
+    println("a >= b = ${a >= b}")
+    println("a <= b = ${a <= b}")
 
-    println("a == c => ${a == c} \t a === c => ${a === c}")
-    
+    // 操作符重载方式实现
+    println("a.compareTo(b) > 0 = ${a.compareTo(b) > 0}")
+    println("a.compareTo(b) < 0 = ${a.compareTo(b) < 0}")
+    println("a.compareTo(b) >=  0 = ${a.compareTo(b) >= 0}")
+    println("a.compareTo(b) <= 0 = ${a.compareTo(b) <= 0}")
 }
 
 /**
@@ -44,7 +97,7 @@ fun binaryOperator() {
 }
 
 /**
- * 对一个集合使用“+=”和'-='
+ * 对一个集合使用plus()和plusAssign()
  */
 fun seniorBinaryOperator() {
     var arrA = arrayListOf<String>("1","2","3","4")
@@ -55,7 +108,6 @@ fun seniorBinaryOperator() {
     for (a in arrA){
         print("$a \t")
     }
-
 }
 
 /**
@@ -66,11 +118,12 @@ fun commonBinaryOperator() {
     var b = 2
     var c = "Kotlin"
 
-    a += b
-    print("a = $a \t")
     // 主要演示字符串的+=
     c += a
-    print("c = $c \t")
+    print("c = $c \t" )
+
+    a += b
+    print("a = $a \t")
 
     a = 10
     a -= b
@@ -88,14 +141,15 @@ fun commonBinaryOperator() {
     a %= b
     println("a = $a \t")
 
-    // Kotlin版本
+    // 操作符重载方式实现
+    a = 10
+    c = "Kotlin"
+    c = c.plus(a)
+    print("c = $c \t")
+
     a = 10
     a = a.plus(b)
     print("a = $a \t")
-
-    a = 10
-    c = c.plus(a)
-    print("c = $c \t" )
 
     a = 10
     a = a.minus(b)
@@ -111,7 +165,7 @@ fun commonBinaryOperator() {
 
     a = 10
     a = a.rem(b)
-    print("a = $a \t")
+    println("a = $a \t")
 }
 
 /**
@@ -123,14 +177,12 @@ fun basicBinaryOperator(){
     val c = "2"
     val d = "Kotlin"
 
-    // Java实现
+    // 操作符实现
     println("a + d = " + a + d)
     println("c + d = " + c + d)
     println("a + b = ${a + b} \t a - b = ${a - b} \t a * b = ${a * b} \t a / b = ${a / b} \t a % b = ${a % b}")
 
-    // Kotlin实现
-    println("a .. b = ${a .. b}")
-    // println("a + d = ${a + d}") 错误：字符串模板限制只能为数值型
+    // 操作符重载实现
     println("a + b = ${a.plus(b)} \t a - b = ${a.minus(b)} \t a * b = ${a.times(b)} \t a / b = ${a.div(b)} \t a % b = ${a.rem(b)} \t a .. d = ${a.rangeTo(b)}")
     // println(a.plus(d))  错误：因为第一个操作数`a`限制了其plus()方法的参数，
     // println(d.plus(a))  正确：因为plus()方法的参数为超（Any）类型
@@ -153,11 +205,11 @@ private fun unitaryOperator() {
     var c = true
     var d = false
 
-    // Java实现
+    // 操作符实现
     println("+a = ${+a}\t -a = ${-a}\t !c = ${!c}")
     println("+b = ${+b}\t -b = ${-b}\t !d = ${!d}")
 
-    // Kotlin实现，值得注意的是Kotlin同样可以实现上面的写法
+    // 操作符重载方式实现
     println("+a = ${a.unaryPlus()}\t -a = ${a.unaryMinus()}\t !c = ${c.not()}")
     println("+b = ${b.unaryPlus()}\t -b = ${b.unaryMinus()}\t !d = ${d.not()}")
 }
@@ -185,13 +237,14 @@ fun unitaryCommonOperator() {
     b = 10
     c = 10
     d = 10
-    //  Kotlin实现
 
-    a.also { a.dec() }
-    b.dec().also { b = it }
-    println("a = $a \t b = $b" )
+    // 操作符重载方式实现
+    a.also { a.inc() }
+    b.also { b.dec() }
+    c.inc().also { c = it }
+    d.dec().also { d = it }
+    println("a = $a \t b = $b \t c = $c \t d = $d")
 
-//    println("a.inc() = ${a.inc()} \t b.dec() = ${b.dec()} \t ++c = ${c.inc()} \t --d = ${d.dec()}")
 }
 
  
