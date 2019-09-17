@@ -2,7 +2,7 @@ package com.kotlin.leran.cls.classDemo
 
 /**
  * 描述 ：    继承类详解
- * anthor :  Jetictors
+ * author :  Jetictors
  * time :    2018/1/22  23:14
  * version : v1.0.1
  */
@@ -37,10 +37,10 @@ class DemoTest : Demo(){
 
 //    override val valStr: String
 //        get() = super.valStr
-
+//
 //    override var valStr: String = ""
 //        get() = super.valStr
-
+//
 //    override val valStr: String = ""
 
     override var valStr: String = "abc"
@@ -74,21 +74,24 @@ class C : A(),B{
     }
 }
 
-fun main(args: Array<String>) {
+class InheritClsDemo{
 
-    println(DemoTest().num)
-    println(DemoTest().foo())
-    println(DemoTest().bar())
-    println(DemoTest().foo("foo的重载函数"))
+    fun test(){
+        println(DemoTest().num)
+        println(DemoTest().foo())
+        println(DemoTest().bar())
+        println(DemoTest().foo("foo的重载函数"))
 
-    println(DemoTest().num)
+        println(DemoTest().num)
 
-    println(DemoTest().valStr)
+        println(DemoTest().valStr)
 
-    val demo = DemoTest()
-    demo.valStr = "1212121212"
-    println(demo.valStr)
+        val demo = DemoTest()
+        demo.valStr = "1212121212"
+        println(demo.valStr)
 
-    val demo2 = DemoTest2(1,"构造函数中重写")
-    println("num = ${demo2.num} \t valStr = ${demo2.valStr}")
+        val demo2 = DemoTest2(1,"构造函数中重写")
+        println("num = ${demo2.num} \t valStr = ${demo2.valStr}")
+    }
+
 }

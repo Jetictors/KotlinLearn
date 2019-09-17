@@ -1,8 +1,8 @@
-package com.kotlin.leran.senior
+package com.kotlin.leran.basis
 
 /**
  * 描述 ：    操作符重载详解
- * anthor :  Jetictors
+ * author :  Jetictors
  * time :    2018/1/3  23:21
  * version : v1.0.1
  */
@@ -246,5 +246,4 @@ fun unitaryCommonOperator() {
     println("a = $a \t b = $b \t c = $c \t d = $d")
 
 }
-
  

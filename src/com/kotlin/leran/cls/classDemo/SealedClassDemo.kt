@@ -2,7 +2,7 @@ package com.kotlin.leran.cls.classDemo
 
 /**
  * 描述 ：    密封类详解
- * anthor :  Jetictors
+ * author :  Jetictors
  * time :    2017/12/31  0:39
  * version : v1.0.1
  */
@@ -21,18 +21,30 @@ fun eval(expr: SealedExpr) = when(expr){
     NotANumber -> TODO()
 }
 
-fun main(args: Array<String>) {
-    val mPerson1 = SealedExpr.Person("name1",22)
-    println(mPerson1)
-
-    val mPerson2 = SealedExpr.Person("name2",23)
-    println(mPerson2)
-
-    println(mPerson1.hashCode())
-    println(mPerson2.hashCode())
-
-    eval(SealedExpr)
+/**
+ * 测试密封类其子类的扩展函数
+ */
+fun <T> SealedExpr.Add.add(num1 : T, num2 : T) : Int{
+    return 100
 }
 
+class SealedClassDemo{
+
+    fun test(){
+        val mPerson1 = SealedExpr.Person("name1",22)
+        println(mPerson1)
+
+        val mPerson2 = SealedExpr.Person("name2",23)
+        println(mPerson2)
+
+        println(mPerson1.hashCode())
+        println(mPerson2.hashCode())
+
+        eval(SealedExpr)
+
+        println(SealedExpr.Add.add(1,2))
+    }
+
+}
 
  

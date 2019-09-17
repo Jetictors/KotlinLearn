@@ -2,7 +2,7 @@ package com.kotlin.leran.cls.classDemo
 
 /**
  * 描述 ：    内部类
- * anthor :  Jetictors
+ * author :  Jetictors
  * time :    2017/12/13  0:43
  * version : v1.0.1
  */
@@ -65,23 +65,26 @@ interface OnClickListener{
     fun onItemClick(str : String)
 }
 
-fun main(args: Array<String>) {
+class InnerClassDemo {
 
-    // 测试嵌套类
-    Other.Nested().init()       // 调用格式为：外部类.嵌套类().嵌套类方法/属性
+    fun test() {
+        // 测试嵌套类
+        Other.Nested().init()       // 调用格式为：外部类.嵌套类().嵌套类方法/属性
 
-    // 测试内部类
-    Other().InnerClass().init() // 调用格式为：外部类().内部类().内部类方法/属性
+        // 测试内部类
+        Other().InnerClass().init() // 调用格式为：外部类().内部类().内部类方法/属性
 
-    // 测试局部类
-    Other().partMethod()
+        // 测试局部类
+        Other().partMethod()
 
-    // 测试匿名内部类
-    val other = Other()
-    other.setOnClickListener(object : OnClickListener{
-        override fun onItemClick(str: String) {
-            // todo
-            println(str)
-        }
-    })
+        // 测试匿名内部类
+        val other = Other()
+        other.setOnClickListener(object : OnClickListener {
+            override fun onItemClick(str: String) {
+                // todo
+                println(str)
+            }
+        })
+    }
+
 }

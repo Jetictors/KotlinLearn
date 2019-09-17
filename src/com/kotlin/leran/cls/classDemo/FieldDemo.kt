@@ -2,7 +2,7 @@ package com.kotlin.leran.cls.classDemo
 
 /**
  * 描述 ：    Kotlin属性/字段详解
- * anthor :  Jetictors
+ * author :  Jetictors
  * time :    2018/1/29  1:01
  * version : v1.0.1
  */
@@ -46,23 +46,27 @@ class Mime{
 
 }
 
-fun main(args: Array<String>) {
-    val mime = Mime()
-    println("id = ${mime.id} \t name = ${mime.name} \t age = ${mime.age} \t sex = ${mime.sex} \t weight = ${mime.weight}")
+class FieldDemo {
 
-    println("isEmpty = ${mime.isEmpty}")
+    fun test(){
+        val mime = Mime()
+        println("id = ${mime.id} \t name = ${mime.name} \t age = ${mime.age} \t sex = ${mime.sex} \t weight = ${mime.weight}")
 
-    println("num = ${mime.num}")
+        println("isEmpty = ${mime.isEmpty}")
 
-    println("str = ${mime.str1}")
-    mime.str1 = ""
-    println("str = ${mime.str1}")
-    mime.str1 = "kotlin"
-    println("str = ${mime.str1}")
+        println("num = ${mime.num}")
 
-    println("str = ${mime.str2}")
-    mime.str2 = ""
-    println("str = ${mime.str2}")
-    mime.str2 = "kotlin"
-    println("str = ${mime.str2}")
+        println("str = ${mime.str1}")
+        mime.str1 = ""
+        println("str = ${mime.str1}")
+        mime.str1 = "kotlin"
+        println("str = ${mime.str1}")
+
+        println("str = ${mime.str2}")
+        mime.str2 = ""
+        println("str = ${mime.str2}")
+        mime.str2 = "kotlin"
+        println("str = ${mime.str2}")
+    }
+
 }
