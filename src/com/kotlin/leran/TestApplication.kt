@@ -7,6 +7,7 @@ import com.kotlin.leran.design.adapter.ClassAdapter
 import com.kotlin.leran.design.adapter.DefaultAdapter
 import com.kotlin.leran.design.adapter.ObjectAdapter
 import com.kotlin.leran.function.BasisFunctionDemo
+import com.kotlin.leran.function.InfixFunDemo
 import com.kotlin.leran.function.SeniorFunctionDemo
 import com.kotlin.leran.function.lambda.LambdaDemo
 import com.kotlin.leran.other.CollectionDemo
@@ -83,6 +84,11 @@ fun main(args: Array<String>) {
     // 测试Lambda语法demo
     // LambdaDemo().test()
 
+    // 测试中缀函数
+    val infixDemo = InfixFunDemo()
+    infixDemo testInFix  ("测试中缀函数")
+    infixDemo.test()
+
     // 测试高阶函数
     // SeniorFunctionDemo().test()
 
@@ -95,8 +101,7 @@ fun main(args: Array<String>) {
 
 
     // 测试适配器模式
-    ClassAdapter().test()
-    ObjectAdapter().test()
-    DefaultAdapter().test()
-
+    // ClassAdapter().test()
+    // ObjectAdapter().test()
+    // DefaultAdapter().test()
 }
