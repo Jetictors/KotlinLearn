@@ -13,13 +13,18 @@ import kotlinx.coroutines.*
 class Basis{
 
     suspend fun test(){
-        first()
-        second()
-        third()
-        fourth()
-        five()
-        six()
-        seven()
+//        first()
+//        second()
+//        third()
+//        fourth()
+//        five()
+//        six()
+//        seven()
+//        eight()
+//        nine()
+//        newNine()
+        ten()
+        newTen()
     }
 
     /**
@@ -119,13 +124,75 @@ class Basis{
         println("Coroutine scope is over")
     }
 
-    private fun eight(){
+    /**
+     * 函数重构使用
+     */
+    private fun eight() = runBlocking {
+        launch { doWorld("协程") }
+        println("kotlin")
     }
 
-    private fun nine(){}
+    /**
+     * 测试协程的轻量级
+     */
+    private fun nine() = runBlocking {
+        /*
+            repeat函数是一个高阶函数，即循环作一件事
+            [times] 循环次数
+            [action] 动作（事情）
+          */
+        repeat(100_000){
+            launch {
+                delay(1000)
+                print(".")
+            }
+        }
+    }
+
+    /**
+     * 用线程作对比
+     */
+    private fun newNine(){
+        repeat(100_000){
+            Thread {
+                print(".")
+            }.start()
+        }
+    }
 
     private fun ten(){
 
+        println("start")
+
+        run{
+            repeat(50){
+                if (it == 20) return@repeat
+                println("running $it")
+            }
+        }
+
+        println("stop")
+    }
+
+    private fun newTen(){
+        println("start")
+
+        run{
+            repeat(50){
+                if (it == 20) return@run
+                println("running $it")
+            }
+        }
+
+        println("stop")
+    }
+
+    /**
+     * 提取函数重构
+     */
+    private suspend fun doWorld(world : String){
+        delay(1000)
+        println(world)
     }
 
 }
