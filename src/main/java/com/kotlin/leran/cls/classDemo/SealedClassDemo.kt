@@ -24,8 +24,8 @@ fun eval(expr: SealedExpr) = when(expr){
 /**
  * 测试密封类其子类的扩展函数
  */
-fun <T> SealedExpr.Add.add(num1 : T, num2 : T) : Int{
-    return 100
+fun  SealedExpr.Add.add(num1 : Int, num2 : Int) : Int{
+    return num1 + num2
 }
 
 class SealedClassDemo{

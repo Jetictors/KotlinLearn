@@ -1,21 +1,18 @@
 package com.kotlin.leran
 
-import com.kotlin.leran.algorithm.Test
-import com.kotlin.leran.basis.*
-import com.kotlin.leran.cls.TypealiasDemo
-import com.kotlin.leran.cls.classDemo.*
-import com.kotlin.leran.coroutines.Basis
-import com.kotlin.leran.coroutines.CancelCoroutineDemo
 import com.kotlin.leran.design.adapter.ClassAdapter
 import com.kotlin.leran.design.adapter.DefaultAdapter
 import com.kotlin.leran.design.adapter.ObjectAdapter
-import com.kotlin.leran.function.BasisFunctionDemo
-import com.kotlin.leran.function.InfixFunDemo
-import com.kotlin.leran.function.SeniorFunctionDemo
-import com.kotlin.leran.function.lambda.LambdaDemo
-import com.kotlin.leran.other.CollectionDemo
-import com.kotlin.leran.other.OperaCollectionDemo
-import kotlin.contracts.contract
+import com.kotlin.leran.design.proxy.dynamic.cglib.Car
+import com.kotlin.leran.design.proxy.dynamic.cglib.TestCglibFactory
+import com.kotlin.leran.design.proxy.dynamic.jdk.*
+import com.kotlin.leran.design.proxy.statics.demo1.Driver
+import com.kotlin.leran.design.proxy.statics.demo1.FirstDriver
+import com.kotlin.leran.design.proxy.statics.demo1.MoneyProxy
+import com.kotlin.leran.design.proxy.statics.demo2.PlaneProxy
+import com.kotlin.leran.design.proxy.statics.demo2.RailwayProxy
+import com.kotlin.leran.design.proxy.statics.demo2.User
+import java.lang.reflect.Proxy
 
 /**
  * Desc           :  程序入口类
@@ -24,7 +21,7 @@ import kotlin.contracts.contract
  * Email          :  zhengxcfutures@gmail.com
  * Version        :  v-1.0.1
  */
-suspend fun main(args: Array<String>) {
+fun main(args: Array<String>) {
 
      // 测试 HelloWorld
 //     HelloWorld().test()
@@ -83,8 +80,6 @@ suspend fun main(args: Array<String>) {
      // 测试 类型别名
 //     TypealiasDemo().test()
 
-
-
      // 测试 Lambda语法
 //     LambdaDemo().test()
 
@@ -92,7 +87,6 @@ suspend fun main(args: Array<String>) {
 //     val infixDemo = InfixFunDemo()
 //     infixDemo testInFix  ("测试中缀函数")
 //     infixDemo.test()
-
 
      // 测试高阶函数
 //     SeniorFunctionDemo().test()
@@ -104,20 +98,84 @@ suspend fun main(args: Array<String>) {
 //     OperaCollectionDemo().test()
 
      // 测试协程
-//     Basis().test()
-//     CancelCoroutineDemo().test()
-
-
+//      testCoroutine()
 
      // 测试 适配器模式
-//     ClassAdapter().test()
-//     ObjectAdapter().test()
-//     DefaultAdapter().test()
+//      testAdapter()
 
-    val test = Test()
-//    test.test2(10000)
-//    test.test3(10000)
-    test.test4(10)
-    test.test5(10)
+    // 测试静态代理
+//     testStaticsProxy()
+
+    // 测试动态代理
+//     testDynamicProxy()
+}
+
+/**
+ * 测试协程
+ */
+private fun testCoroutine(){
+
+}
+
+/**
+ * 测试算法
+ */
+private fun testAlgorithm(){
+
+}
+
+/**
+ * 测试适配器模式
+ */
+private fun testAdapter(){
+    ClassAdapter().test()
+    ObjectAdapter().test()
+    DefaultAdapter().test()
+}
+
+/**
+ * 测试静态代理
+ */
+private fun testStaticsProxy(){
+    val user = User()
+    val planeProxy = PlaneProxy(user)
+    planeProxy.buyTicket("深圳-重庆", 783.56)
+
+    val railwayProxy = RailwayProxy(user)
+    railwayProxy.buyTicket("广州南-重庆西", 428.23)
+
+    val driver = Driver()
+    val driverProxy2 = MoneyProxy(driver)
+    driverProxy2.giveMoney(5,13)
+
+    val firstDriver = FirstDriver()
+    firstDriver.giveMoney(7,12)
+}
+
+/**
+ * 测试动态代理
+ */
+private fun testDynamicProxy(){
+    val railway = Railway()
+    var handler = ProxyHandler(railway)
+    val railwayProxy = Proxy.newProxyInstance(railway.javaClass.classLoader,
+            railway.javaClass.interfaces, handler) as IDynamicTicket
+    railwayProxy.buyTicket("广州南-重庆西", 428.34)
+
+    val plane = Plane()
+    handler = ProxyHandler(plane)
+    val planeProxy = Proxy.newProxyInstance(plane.javaClass.classLoader,
+            plane.javaClass.interfaces, handler) as IDynamicTicket
+    planeProxy.buyTicket("深圳-重庆", 1028.34)
+
+    val boat = Boat()
+    handler = ProxyHandler(boat)
+    val boatProxy = Proxy.newProxyInstance(boat.javaClass.classLoader,
+            boat.javaClass.interfaces, handler) as IDynamicTicket
+    boatProxy.buyTicket("深圳-香港", 167.34)
+
+    val car = Car()
+    val carProxy = TestCglibFactory(car).creator()
+    carProxy.buyCarTicket("深圳-广州", 137.5)
 
 }
