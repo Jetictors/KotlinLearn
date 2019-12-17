@@ -3,6 +3,7 @@ package com.kotlin.leran
 import com.kotlin.leran.design.adapter.ClassAdapter
 import com.kotlin.leran.design.adapter.DefaultAdapter
 import com.kotlin.leran.design.adapter.ObjectAdapter
+import com.kotlin.leran.design.factory.simple.*
 import com.kotlin.leran.design.observer.test.ConcreteObserver
 import com.kotlin.leran.design.observer.test.ConcreteSubject
 import com.kotlin.leran.design.policy.CarTicket
@@ -106,6 +107,9 @@ fun main(args: Array<String>) {
      // 测试协程
 //      testCoroutine()
 
+     // 测试简单工厂模式
+     testSimpleFactory()
+
      // 测试 适配器模式
 //      testAdapter()
 
@@ -116,10 +120,10 @@ fun main(args: Array<String>) {
 //     testDynamicProxy()
 
     // 测试策略模式
-    testPolicy(IBuyTicket.TYPE_PLANE)
+//    testPolicy(IBuyTicket.TYPE_PLANE)
 
     // 测试观察者模式
-    testObserver()
+//    testObserver()
 
 }
 
@@ -134,6 +138,34 @@ private fun testCoroutine(){
  * 测试算法
  */
 private fun testAlgorithm(){
+
+}
+
+/**
+ * 测试简单工厂模式
+ */
+private fun testSimpleFactory(){
+
+    // 普通工厂测试
+    val firstFruit = FirstFruitFactory().createFactory("apple")
+    firstFruit?.harvest()
+
+    // 多个工厂方法测试
+    val secondFruit = SecondFruitFactory().createBanana()
+    secondFruit.harvest()
+
+    // 静态工厂方法测试
+    val thirdFruit = ThirdFruitFactory.createGrape()
+    thirdFruit.harvest()
+
+    // 省略了抽象角色的工厂类 测试
+    val firstProduce = ProduceFactory().createProduce()
+    firstProduce.update()
+
+    // 抽象角色、工厂类、具体角色合并到一起 即自身创建自身（外部不用new创建） 测试
+    val secondProduce = ConcreteProduce.createProduce()
+    secondProduce.update()
+
 
 }
 
