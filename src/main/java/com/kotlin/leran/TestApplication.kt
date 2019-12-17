@@ -3,6 +3,12 @@ package com.kotlin.leran
 import com.kotlin.leran.design.adapter.ClassAdapter
 import com.kotlin.leran.design.adapter.DefaultAdapter
 import com.kotlin.leran.design.adapter.ObjectAdapter
+import com.kotlin.leran.design.observer.test.ConcreteObserver
+import com.kotlin.leran.design.observer.test.ConcreteSubject
+import com.kotlin.leran.design.policy.CarTicket
+import com.kotlin.leran.design.policy.GaoTieTicket
+import com.kotlin.leran.design.policy.IBuyTicket
+import com.kotlin.leran.design.policy.PlaneTicket
 import com.kotlin.leran.design.proxy.dynamic.cglib.Car
 import com.kotlin.leran.design.proxy.dynamic.cglib.TestCglibFactory
 import com.kotlin.leran.design.proxy.dynamic.jdk.*
@@ -108,6 +114,13 @@ fun main(args: Array<String>) {
 
     // 测试动态代理
 //     testDynamicProxy()
+
+    // 测试策略模式
+    testPolicy(IBuyTicket.TYPE_PLANE)
+
+    // 测试观察者模式
+    testObserver()
+
 }
 
 /**
@@ -177,5 +190,48 @@ private fun testDynamicProxy(){
     val car = Car()
     val carProxy = TestCglibFactory(car).creator()
     carProxy.buyCarTicket("深圳-广州", 137.5)
+
+}
+
+
+/**
+ * 测试策略类
+ */
+private fun testPolicy(type : Int){
+    val ticket = when(type){
+        IBuyTicket.TYPE_PLANE -> PlaneTicket()
+        IBuyTicket.TYPE_GAO_TIE -> GaoTieTicket()
+        IBuyTicket.TYPE_CAR -> CarTicket()
+        else -> null
+    }
+
+    val mData  = listOf<String>("xxx","yyy","zzz")
+
+    for (i in 1 until 10){
+
+    }
+
+    ticket?.getTicketMoney("深圳-广州", 137.5)
+}
+
+/**
+ * 测试观察者模式
+ */
+private fun testObserver(){
+
+    // 测试test
+    val subject = ConcreteSubject()
+    val observerFirst = ConcreteObserver("观察者对象1")
+    val observerSecond = ConcreteObserver("观察者对象2")
+
+    subject.attach(observerFirst)
+    subject.attach(observerSecond)
+    subject.notifyObserver()
+
+    subject.detach(observerFirst)
+    subject.notifyObserver()
+
+    // 测试demo
+    
 
 }
