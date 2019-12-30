@@ -1,4 +1,4 @@
-package com.kotlin.leran.design.factory.simple
+package com.kotlin.leran.design.factory.simple.demo1
 
 /**
  * Desc           :  普通工厂模式

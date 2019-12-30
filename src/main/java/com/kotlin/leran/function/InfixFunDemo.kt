@@ -55,6 +55,8 @@ class InfixFunDemo{
         println("a => $fix")
     }
 
+
+
     fun test(){
         println("add => ${3 add 3}")
         println("sub => ${3 sub 3}")

@@ -29,7 +29,7 @@ class Mime{
     val num = 2
         get() = if (field > 5) 10 else 0
 
-    var str1 = "test"
+    var str1 = "demo1"
         get() = field
         set(value){
             field = if (value.isNotEmpty()) value else "null"

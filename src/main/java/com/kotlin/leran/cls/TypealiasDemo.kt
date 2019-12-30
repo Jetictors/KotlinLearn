@@ -24,7 +24,7 @@ typealias Predicate<T> = (T) -> Boolean
 
 // 定义的高阶函数
 fun foo1(p : Predicate<Int>) = p(2)
-fun foo2(p : Predicate<String>) = p("test")
+fun foo2(p : Predicate<String>) = p("demo1")
 
 class DemoClassTestNest{
     class A{
@@ -107,7 +107,7 @@ class TypealiasDemo {
         data.asSequence().flatMap { it.asSequence() }.forEach { print("value : $it \t") }
 
         val dataModel: MapModelData<Int> = mutableMapOf()
-        val model1 = BaseModel<Int>(1, "test 1", 1)
+        val model1 = BaseModel<Int>(1, "demo1 1", 1)
         val model2 = BaseModel<Int>(2, "test2", 2)
         dataModel.put("1", model1)
         dataModel.put("2", model2)
@@ -122,7 +122,7 @@ class TypealiasDemo {
         println(foo1(f1))
 
         val f2: (String) -> Boolean = { it == "xxx" }
-        println(foo2(f2)) //这里输出为false, 很显然，"test" != "xxx"
+        println(foo2(f2)) //这里输出为false, 很显然，"demo1" != "xxx"
     }
 
 }

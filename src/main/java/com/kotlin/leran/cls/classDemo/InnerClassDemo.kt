@@ -23,7 +23,7 @@ class Other{    // 外部类
             var numPart : Int = 2
 
             fun test(){
-                name = "test"
+                name = "demo1"
                 numPart = 5
                 println("我是局部类中的方法")
             }

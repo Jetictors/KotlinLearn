@@ -1,4 +1,4 @@
-package com.kotlin.leran.design.factory.simple
+package com.kotlin.leran.design.factory.simple.demo2
 
 /**
  * Desc           :  具体产品（当只有一个具体产品是，抽象角色可省略）
@@ -12,5 +12,15 @@ data class Produce(var name : String){
     fun update(){
         println("更新产品 $name")
     }
+
+}
+
+interface IApple{
+
+
+
+}
+
+class OneApple : IApple {
 
 }

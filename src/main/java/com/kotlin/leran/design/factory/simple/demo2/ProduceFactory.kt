@@ -1,4 +1,4 @@
-package com.kotlin.leran.design.factory.simple
+package com.kotlin.leran.design.factory.simple.demo2
 
 /**
  * Desc           :  省略了抽象角色的工厂类
@@ -10,7 +10,7 @@ package com.kotlin.leran.design.factory.simple
 
 class ProduceFactory{
 
-    fun createProduce() : Produce{
+    fun createProduce() : Produce {
         return Produce("first produce")
     }
 

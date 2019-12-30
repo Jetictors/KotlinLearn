@@ -1,25 +1,20 @@
 package com.kotlin.leran
 
-import com.kotlin.leran.design.adapter.ClassAdapter
-import com.kotlin.leran.design.adapter.DefaultAdapter
-import com.kotlin.leran.design.adapter.ObjectAdapter
-import com.kotlin.leran.design.factory.simple.*
-import com.kotlin.leran.design.observer.test.ConcreteObserver
-import com.kotlin.leran.design.observer.test.ConcreteSubject
-import com.kotlin.leran.design.policy.CarTicket
-import com.kotlin.leran.design.policy.GaoTieTicket
-import com.kotlin.leran.design.policy.IBuyTicket
-import com.kotlin.leran.design.policy.PlaneTicket
-import com.kotlin.leran.design.proxy.dynamic.cglib.Car
-import com.kotlin.leran.design.proxy.dynamic.cglib.TestCglibFactory
-import com.kotlin.leran.design.proxy.dynamic.jdk.*
-import com.kotlin.leran.design.proxy.statics.demo1.Driver
-import com.kotlin.leran.design.proxy.statics.demo1.FirstDriver
-import com.kotlin.leran.design.proxy.statics.demo1.MoneyProxy
-import com.kotlin.leran.design.proxy.statics.demo2.PlaneProxy
-import com.kotlin.leran.design.proxy.statics.demo2.RailwayProxy
-import com.kotlin.leran.design.proxy.statics.demo2.User
-import java.lang.reflect.Proxy
+import com.kotlin.leran.basis.*
+import com.kotlin.leran.cls.TypealiasDemo
+import com.kotlin.leran.cls.classDemo.*
+import com.kotlin.leran.coroutines.Basis
+import com.kotlin.leran.design.adapter.TestAdapter
+import com.kotlin.leran.design.factory.TestFactory
+import com.kotlin.leran.design.observer.TestObserver
+import com.kotlin.leran.design.policy.TestPolicy
+import com.kotlin.leran.design.policy.demo.IBuyTicket
+import com.kotlin.leran.function.BasisFunctionDemo
+import com.kotlin.leran.function.InfixFunDemo
+import com.kotlin.leran.function.SeniorFunctionDemo
+import com.kotlin.leran.function.lambda.LambdaDemo
+import com.kotlin.leran.other.CollectionDemo
+import com.kotlin.leran.other.OperaCollectionDemo
 
 /**
  * Desc           :  程序入口类
@@ -31,239 +26,102 @@ import java.lang.reflect.Proxy
 fun main(args: Array<String>) {
 
      // 测试 HelloWorld
-//     HelloWorld().test()
+     HelloWorld().test()
 
      // 测试 变量
-//     VariableAndConstantDemo().test()
+     VariableAndConstantDemo().test()
 
      // 测试 常量
-//     Constant().test()
+     Constant().test()
 
      // 测试 注释
-//     NoteDemo().test()
+     NoteDemo().test()
 
      // 测试 数据类型
-//     DataTypeDemo().test()
+     DataTypeDemo().test()
 
      // 测试 控制语句（if、for、while...）
-//     ControlStatementDemo().test()
+     ControlStatementDemo().test()
 
      // 测试 空安全
-//     NullAndNullCheckDemo().test()
+     NullAndNullCheckDemo().test()
 
      // 测试 操作符
-//     OperatorStringDemo().test()
+     OperatorStringDemo().test()
 
      // 测试 函数基础
-//     BasisFunctionDemo().test()
+     BasisFunctionDemo().test()
 
      // 测试 类的声明
-//     ClassDemo1().test()
+     ClassDemo1().test()
 
      // 测试 属性与字段
-//     FieldDemo().test()
+     FieldDemo().test()
 
      // 测试 抽象类
-//     AbstarctClassDemo().test()
+     AbstarctClassDemo().test()
 
      // 测试 数据类
-//     DataClassDemo().test()
+     DataClassDemo().test()
 
      // 测试 枚举类
-//     EnumDemo().test()
+     EnumDemo().test()
 
      // 测试 内部类
-//     InnerClassDemo().test()
+     InnerClassDemo().test()
 
      // 测试 密封类
-//     SealedClassDemo().test()
+     SealedClassDemo().test()
 
      // 测试 继承
-//     InheritClsDemo().test()
+     InheritClsDemo().test()
 
      // 测试 接口
-//     InterfaeDemo().test()
+     InterfaeDemo().test()
 
      // 测试 类型别名
-//     TypealiasDemo().test()
+     TypealiasDemo().test()
 
      // 测试 Lambda语法
-//     LambdaDemo().test()
+     LambdaDemo().test()
 
      // 测试 中缀函数
-//     val infixDemo = InfixFunDemo()
-//     infixDemo testInFix  ("测试中缀函数")
-//     infixDemo.test()
+     val infixDemo = InfixFunDemo()
+     infixDemo testInFix("测试中缀函数")
+     infixDemo.test()
 
      // 测试高阶函数
-//     SeniorFunctionDemo().test()
+     SeniorFunctionDemo().test()
 
      // 测试 集合初始化
-//     CollectionDemo().test()
+     CollectionDemo().test()
 
      // 测试 集合的各种操作
-//     OperaCollectionDemo().test()
+     OperaCollectionDemo().test()
 
      // 测试协程
-//      testCoroutine()
+     // testCoroutine()
 
-     // 测试简单工厂模式
-     testSimpleFactory()
+    // 测试工厂模式
+    TestFactory().test()
 
-     // 测试 适配器模式
-//      testAdapter()
+    // 测试 适配器模式
+    TestAdapter().test()
 
-    // 测试静态代理
-//     testStaticsProxy()
-
-    // 测试动态代理
-//     testDynamicProxy()
+    // 测试代理模式
+     TestObserver().test()
 
     // 测试策略模式
-//    testPolicy(IBuyTicket.TYPE_PLANE)
+    TestPolicy().test(IBuyTicket.TYPE_PLANE)
 
     // 测试观察者模式
-//    testObserver()
+    TestObserver().test()
 
 }
 
 /**
  * 测试协程
  */
-private fun testCoroutine(){
-
-}
-
-/**
- * 测试算法
- */
-private fun testAlgorithm(){
-
-}
-
-/**
- * 测试简单工厂模式
- */
-private fun testSimpleFactory(){
-
-    // 普通工厂测试
-    val firstFruit = FirstFruitFactory().createFactory("apple")
-    firstFruit?.harvest()
-
-    // 多个工厂方法测试
-    val secondFruit = SecondFruitFactory().createBanana()
-    secondFruit.harvest()
-
-    // 静态工厂方法测试
-    val thirdFruit = ThirdFruitFactory.createGrape()
-    thirdFruit.harvest()
-
-    // 省略了抽象角色的工厂类 测试
-    val firstProduce = ProduceFactory().createProduce()
-    firstProduce.update()
-
-    // 抽象角色、工厂类、具体角色合并到一起 即自身创建自身（外部不用new创建） 测试
-    val secondProduce = ConcreteProduce.createProduce()
-    secondProduce.update()
-
-
-}
-
-/**
- * 测试适配器模式
- */
-private fun testAdapter(){
-    ClassAdapter().test()
-    ObjectAdapter().test()
-    DefaultAdapter().test()
-}
-
-/**
- * 测试静态代理
- */
-private fun testStaticsProxy(){
-    val user = User()
-    val planeProxy = PlaneProxy(user)
-    planeProxy.buyTicket("深圳-重庆", 783.56)
-
-    val railwayProxy = RailwayProxy(user)
-    railwayProxy.buyTicket("广州南-重庆西", 428.23)
-
-    val driver = Driver()
-    val driverProxy2 = MoneyProxy(driver)
-    driverProxy2.giveMoney(5,13)
-
-    val firstDriver = FirstDriver()
-    firstDriver.giveMoney(7,12)
-}
-
-/**
- * 测试动态代理
- */
-private fun testDynamicProxy(){
-    val railway = Railway()
-    var handler = ProxyHandler(railway)
-    val railwayProxy = Proxy.newProxyInstance(railway.javaClass.classLoader,
-            railway.javaClass.interfaces, handler) as IDynamicTicket
-    railwayProxy.buyTicket("广州南-重庆西", 428.34)
-
-    val plane = Plane()
-    handler = ProxyHandler(plane)
-    val planeProxy = Proxy.newProxyInstance(plane.javaClass.classLoader,
-            plane.javaClass.interfaces, handler) as IDynamicTicket
-    planeProxy.buyTicket("深圳-重庆", 1028.34)
-
-    val boat = Boat()
-    handler = ProxyHandler(boat)
-    val boatProxy = Proxy.newProxyInstance(boat.javaClass.classLoader,
-            boat.javaClass.interfaces, handler) as IDynamicTicket
-    boatProxy.buyTicket("深圳-香港", 167.34)
-
-    val car = Car()
-    val carProxy = TestCglibFactory(car).creator()
-    carProxy.buyCarTicket("深圳-广州", 137.5)
-
-}
-
-
-/**
- * 测试策略类
- */
-private fun testPolicy(type : Int){
-    val ticket = when(type){
-        IBuyTicket.TYPE_PLANE -> PlaneTicket()
-        IBuyTicket.TYPE_GAO_TIE -> GaoTieTicket()
-        IBuyTicket.TYPE_CAR -> CarTicket()
-        else -> null
-    }
-
-    val mData  = listOf<String>("xxx","yyy","zzz")
-
-    for (i in 1 until 10){
-
-    }
-
-    ticket?.getTicketMoney("深圳-广州", 137.5)
-}
-
-/**
- * 测试观察者模式
- */
-private fun testObserver(){
-
-    // 测试test
-    val subject = ConcreteSubject()
-    val observerFirst = ConcreteObserver("观察者对象1")
-    val observerSecond = ConcreteObserver("观察者对象2")
-
-    subject.attach(observerFirst)
-    subject.attach(observerSecond)
-    subject.notifyObserver()
-
-    subject.detach(observerFirst)
-    subject.notifyObserver()
-
-    // 测试demo
-    
-
+private suspend fun testCoroutine(){
+    Basis().test()
 }

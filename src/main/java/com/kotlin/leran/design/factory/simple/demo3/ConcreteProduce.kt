@@ -1,4 +1,4 @@
-package com.kotlin.leran.design.factory.simple
+package com.kotlin.leran.design.factory.simple.demo3
 
 /**
  * Desc           :  把抽象角色、具体角色、工厂类合并再一起，
@@ -11,9 +11,11 @@ package com.kotlin.leran.design.factory.simple
 class ConcreteProduce{
 
     companion object{
-        fun createProduce() : Produce{
-            return Produce("second produce")
+        fun createProduce() : ConcreteProduce {
+            return ConcreteProduce()
         }
     }
+
+    fun show(){}
 
 }
